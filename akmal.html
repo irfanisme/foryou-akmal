@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Akmal Zamzam Nasrulhaz!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+        }
+        
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+        
+        .birthday-card:hover {
+            transform: scale(1.02);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #FF6B6B;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #FF6B6B, #FFD700);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            top: -50px;
+            z-index: 1;
+        }
+        
+        .glow-text {
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+            }
+            to {
+                text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        @keyframes float {
+            to {
+                transform: translateY(-110vh);
+            }
+        }
+        
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .photo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .photo-placeholder:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .balloon {
+            position: fixed;
+            width: 30px;
+            height: 40px;
+            border-radius: 50%;
+            bottom: -60px;
+            opacity: 0.7;
+        }
+        
+        .balloon::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .cake {
+            margin: 30px auto;
+            width: 120px;
+            height: 90px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .cake-top {
+            width: 100px;
+            height: 30px;
+            background: #FFD700;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .cake-middle {
+            width: 110px;
+            height: 30px;
+            background: #FF6B6B;
+        }
+        
+        .cake-bottom {
+            width: 120px;
+            height: 30px;
+            background: #6B66FF;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .candle {
+            width: 8px;
+            height: 25px;
+            background: white;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+        
+        .flame {
+            width: 15px;
+            height: 20px;
+            background: orange;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px 5px rgba(255, 165, 0, 0.5);
+            animation: flicker 0.5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); opacity: 1; }
+            100% { transform: translateX(-50%) scale(0.9); opacity: 0.8; }
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .message-box {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1s ease-in-out;
+            margin-top: 20px;
+            font-style: italic;
+            color: #FFD700;
+        }
+        
+        .countdown {
+            font-size: 3rem;
+            margin: 20px 0;
+            color: #FFD700;
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            p { font-size: 1rem; }
+            .birthday-card { padding: 20px; }
+            .btn { padding: 10px 20px; font-size: 0.9rem; }
+            .photo-placeholder { width: 80px; height: 80px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="countdownScreen">
+            <h1 class="glow-text">Tunggu Sebentar...</h1>
+            <div class="countdown" id="countdown">3</div>
+            <p>Menyiapkan kejutan untuk Akmal Zamzam Nasrulhaz!</p>
+        </div>
+        
+        <div class="birthday-card hidden" id="birthdayCard">
+            <h1 class="glow-text">Selamat Ulang Tahun!</h1>
+            <h2>Akmal Zamzam Nasrulhaz</h2>
+            
+            <div class="cake" id="cake">
+                <div class="flame" id="flame"></div>
+                <div class="candle"></div>
+                <div class="cake-top"></div>
+                <div class="cake-middle"></div>
+                <div class="cake-bottom"></div>
+            </div>
+            
+            <p>Hari ini adalah hari spesialmu, sahabat terkasih dan tersayang! Semoga di usiamu yang baru ini, kamu selalu diberkahi kebahagiaan, kesehatan, dan kesuksesan dalam segala hal.</p>
+            
+            <div class="photo-gallery">
+                <div class="photo-placeholder">
+                    <img src="/api/placeholder/120/120" alt="Kenangan bersama Akmal 1" />
+                </div>
+                <div class="photo-placeholder">
+                    <img src="/api/placeholder/120/120" alt="Kenangan bersama Akmal 2" />
+                </div>
+                <div class="photo-placeholder">
+                    <img src="/api/placeholder/120/120" alt="Kenangan bersama Akmal 3" />
+                </div>
+                <div class="photo-placeholder">
+                    <img src="/api/placeholder/120/120" alt="Kenangan bersama Akmal 4" />
+                </div>
+            </div>
+            
+            <button class="btn" id="wishBtn">Tiup Lilin & Buat Permintaan</button>
+            <button class="btn" id="playMusicBtn">Putar Lagu Ulang Tahun</button>
+            
+            <div class="message-box" id="messageBox">
+                <p>Semoga semua impianmu menjadi kenyataan. Kamu adalah sahabat yang luar biasa dan kami sangat bersyukur memilikimu dalam hidup kami!</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Main function to initialize everything
+        function init() {
+            // Elements
+            const countdownScreen = document.getElementById('countdownScreen');
+            const birthdayCard = document.getElementById('birthdayCard');
+            const countdownEl = document.getElementById('countdown');
+            const wishBtn = document.getElementById('wishBtn');
+            const flame = document.getElementById('flame');
+            const messageBox = document.getElementById('messageBox');
+            const playMusicBtn = document.getElementById('playMusicBtn');
+            const cake = document.getElementById('cake');
+            
+            // Countdown timer
+            let count = 3;
+            
+            const countdownInterval = setInterval(() => {
+                count--;
+                countdownEl.textContent = count;
+                
+                if (count <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownScreen.classList.add('hidden');
+                    birthdayCard.classList.remove('hidden');
+                    createConfetti();
+                    createBalloons();
+                }
+            }, 1000);
+            
+            // Confetti function
+            function createConfetti() {
+                const colors = ['#FFD700', '#FF6B6B', '#6B66FF', '#66FFB3', '#FF66F5'];
+                
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'confetti';
+                        
+                        // Random position
+                        const startX = Math.random() * window.innerWidth;
+                        
+                        // Random color
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.backgroundColor = color;
+                        
+                        // Random size
+                        const size = Math.random() * 10 + 5;
+                        confetti.style.width = `${size}px`;
+                        confetti.style.height = `${size}px`;
+                        
+                        // Random shape (circle or square)
+                        const isCircle = Math.random() > 0.5;
+                        confetti.style.borderRadius = isCircle ? '50%' : '0';
+                        
+                        // Position
+                        confetti.style.left = `${startX}px`;
+                        
+                        // Add animation
+                        const animationDuration = Math.random() * 3 + 2;
+                        confetti.style.animation = `fall ${animationDuration}s linear forwards`;
+                        
+                        document.body.appendChild(confetti);
+                        
+                        // Remove after animation completes
+                        setTimeout(() => {
+                            if (document.body.contains(confetti)) {
+                                document.body.removeChild(confetti);
+                            }
+                        }, animationDuration * 1000);
+                    }, i * 100);
+                }
+            }
+            
+            // Balloons function
+            function createBalloons() {
+                const colors = ['#FF6B6B', '#6B66FF', '#66FFB3', '#FFD700', '#FF66F5'];
+                
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        const balloon = document.createElement('div');
+                        balloon.className = 'balloon';
+                        
+                        // Random position
+                        const startX = Math.random() * window.innerWidth;
+                        
+                        // Random color
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        balloon.style.backgroundColor = color;
+                        
+                        // Position
+                        balloon.style.left = `${startX}px`;
+                        
+                        // Add animation
+                        const floatDuration = Math.random() * 5 + 8;
+                        balloon.style.animation = `float ${floatDuration}s ease-in-out forwards`;
+                        
+                        document.body.appendChild(balloon);
+                        
+                        // Remove after animation completes
+                        setTimeout(() => {
+                            if (document.body.contains(balloon)) {
+                                document.body.removeChild(balloon);
+                            }
+                        }, floatDuration * 1000);
+                    }, i * 800);
+                }
+            }
+            
+            // Wish button functionality
+            wishBtn.addEventListener('click', function() {
+                if (flame) {
+                    flame.style.display = 'none';
+                }
+                if (messageBox) {
+                    messageBox.style.maxHeight = '200px';
+                }
+                
+                // Shake the card effect
+                if (birthdayCard) {
+                    birthdayCard.style.animation = 'shake 0.5s';
+                    setTimeout(() => {
+                        birthdayCard.style.animation = '';
+                    }, 500);
+                }
+                
+                // Create more confetti for celebration
+                createConfetti();
+                
+                // Change button text
+                this.textContent = 'Semoga Semua Harapanmu Terkabul!';
+                this.disabled = true;
+            });
+            
+            // Music button functionality
+            let isPlaying = false;
+            let animationInterval;
+            
+            playMusicBtn.addEventListener('click', function() {
+                if (isPlaying) {
+                    clearInterval(animationInterval);
+                    this.textContent = 'Putar Lagu Ulang Tahun';
+                    isPlaying = false;
+                    
+                    if (cake) {
+                        cake.style.transform = '';
+                    }
+                } else {
+                    this.textContent = 'Hentikan Musik';
+                    isPlaying = true;
+                    
+                    // Simulate music playing with visual effects
+                    if (cake) {
+                        animationInterval = setInterval(() => {
+                            if (!isPlaying) {
+                                clearInterval(animationInterval);
+                                return;
+                            }
+                            
+                            const movement = Math.random() * 4 - 2;
+                            cake.style.transform = `translateY(${movement}px)`;
+                            setTimeout(() => {
+                                if (cake) {
+                                    cake.style.transform = '';
+                                }
+                            }, 200);
+                        }, 500);
+                    }
+                }
+            });
+            
+            // Add interactive hover effects to photos
+            const photos = document.querySelectorAll('.photo-placeholder');
+            photos.forEach(photo => {
+                photo.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+                
+                photo.addEventListener('mouseout', function() {
+                    this.style.transform = '';
+                });
+            });
+        }
+        
+        // Run init when DOM is fully loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</body>
+</html>
